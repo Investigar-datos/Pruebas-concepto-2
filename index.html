@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Parejas de Imágenes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Parejas de Imágenes</h1>
+
+<div class="selectors">
+    <label>
+        Selecciona imágenes A
+        <input type="file" id="inputA" multiple accept="image/*">
+    </label>
+
+    <label>
+        Selecciona imágenes B
+        <input type="file" id="inputB" multiple accept="image/*">
+    </label>
+</div>
+
+<button id="showBtn" disabled>Mostrar pareja</button>
+
+<div id="container">
+    <div class="frame">
+        <img id="imgA">
+    </div>
+
+    <div class="frame">
+        <img id="imgB">
+    </div>
+</div>
+
+<script src="app.js"></script>
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('Service Worker registrado'))
+        .catch(err => console.log('Service Worker fallo:', err));
+    }
+</script>
+</body>
+</html>
